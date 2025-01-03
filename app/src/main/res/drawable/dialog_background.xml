@@ -1,0 +1,17 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo con gradiente -->
+    <gradient
+        android:startColor="#FFFFFF"
+        android:endColor="#F0F0F0"
+        android:angle="45" /> <!-- Gradiente suave de blanco a gris claro -->
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="24dp" /> <!-- Bordes más suaves y redondeados -->
+
+    <!-- Sombra sutil (efecto de profundidad) -->
+    <solid android:color="@android:color/white"/>
+    <padding android:left="16dp" android:top="16dp" android:right="16dp" android:bottom="16dp" />
+
+    <!-- Borde con color y sombra más pronunciada -->
+
+</shape>

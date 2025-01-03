@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>  <!-- Negro con opacidad completa -->
+    <color name="white">#FFFFFFFF</color>  <!-- Blanco con opacidad completa -->
+    <color name="red">#FFFF0000</color>    <!-- Rojo con opacidad completa -->
+    <color name="green">#FF00FF00</color>  <!-- Verde con opacidad completa -->
+    <color name="blue">#FF0000FF</color>   <!-- Azul con opacidad completa -->
+    <color name="yellow">#FFFFFF00</color> <!-- Amarillo con opacidad completa -->
+</resources>
