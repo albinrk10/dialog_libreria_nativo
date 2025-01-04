@@ -240,5 +240,11 @@ Archivo XML para diálogos con listas.
 </LinearLayout>
 ```
 
+![image](https://github.com/user-attachments/assets/c009472e-22a5-454d-81dc-af6590044ada)
+
+![image](https://github.com/user-attachments/assets/d9490438-e43e-454f-bf9f-e3fee89f9555)
+
+![image](https://github.com/user-attachments/assets/9f943f4c-397b-4209-9929-c1e462bbdd5c)
+
 
 
