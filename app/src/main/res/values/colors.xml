@@ -6,4 +6,5 @@
     <color name="green">#FF00FF00</color>  <!-- Verde con opacidad completa -->
     <color name="blue">#FF0000FF</color>   <!-- Azul con opacidad completa -->
     <color name="yellow">#FFFFFF00</color> <!-- Amarillo con opacidad completa -->
+
 </resources>

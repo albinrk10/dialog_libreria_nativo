@@ -9,26 +9,25 @@
 
     <Button
         android:id="@+id/button_show_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dialogo de alerta 1"
+        android:layout_width="188dp"
+        android:layout_height="77dp"
+        android:text="Dialogo "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_show_dialog_2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <Button
         android:id="@+id/button_show_dialog_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dialogo de alerta 2"
+        android:layout_width="208dp"
+        android:layout_height="102dp"
+        android:text="Dialogo listado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_show_dialog"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.313" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

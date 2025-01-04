@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.albin.dialog.client.AppConstants
+import com.albin.dialog.client.AppConstants.BACKGROUND_COLOR
+import com.albin.dialog.client.AppConstants.TextButton
 import com.albin.dialog.client.DialogDriver
 import com.albin.dialog.databinding.ActivityMainBinding
 
@@ -48,10 +50,9 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton(AppConstants.POSITIVE_BUTTON_TEXT) {
                 Toast.makeText(this, AppConstants.TOAST_CONFIRMATION, Toast.LENGTH_LONG).show()
             }
-            .setNegativeButton(AppConstants.NEGATIVE_BUTTON_TEXT) {
-                Toast.makeText(this, AppConstants.TOAST_CANCELLED, Toast.LENGTH_LONG).show()
-            }
-            .setBackgroundColor(AppConstants.BACKGROUND_COLOR, AppConstants.BUTTON_COLOR, 5)
+            .setPositiveButtonColor(TextButton)  // Establecer color personalizado para el botón positivo
+            .setCancelableOnTouchOutside(true) // Configurar si se cierra al tocar fuera
+            .setDialogBackgroundColor(BACKGROUND_COLOR) // Establecer el color de fondo verde dinámicamente
 
         dialogDriver?.build()
     }
@@ -65,10 +66,9 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton(AppConstants.POSITIVE_BUTTON_TEXT_ROUTE) {
                 Toast.makeText(this, AppConstants.TOAST_ROUTE_SELECTED, Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton(AppConstants.NEGATIVE_BUTTON_TEXT_ROUTE) {
-                Toast.makeText(this, AppConstants.TOAST_SELECTION_CANCELLED, Toast.LENGTH_SHORT).show()
-            }
-            .setBackgroundColor(AppConstants.BACKGROUND_COLOR, AppConstants.BUTTON_COLOR, 5)
+            .setCancelableOnTouchOutside(false) // Configurar si se cierra al tocar fuera
+            .setDialogBackgroundColor(BACKGROUND_COLOR)  // Establecer el color de fondo verde dinámicamente
+
 
         dialogDriver?.build()
     }

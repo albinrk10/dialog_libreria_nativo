@@ -20,8 +20,9 @@ object AppConstants {
     )
 
     // Colores
-    const val BACKGROUND_COLOR = "#FFFFFF"
-    const val BUTTON_COLOR = "#FF0000"
+    const val BACKGROUND_COLOR = "#ADD8E6"
+    const val BUTTON_COLOR = "#FF5733"
+    const val TextButton = "#0000FF"
 
     // Tamaños de fuente
     const val TITLE_SIZE = 24f
@@ -29,14 +30,10 @@ object AppConstants {
 
 
     // Botones y mensajes
-    const val POSITIVE_BUTTON_TEXT = "Sí"
-    const val NEGATIVE_BUTTON_TEXT = "No"
+    const val POSITIVE_BUTTON_TEXT = "Confirmar"
     const val POSITIVE_BUTTON_TEXT_ROUTE = "Aceptar"
-    const val NEGATIVE_BUTTON_TEXT_ROUTE = "Cancelar"
 
     // Mensajes de Toast
     const val TOAST_CONFIRMATION = "Transferencia realizada con éxito."
-    const val TOAST_CANCELLED = "Se canceló la transferencia."
     const val TOAST_ROUTE_SELECTED = "Marca seleccionada"
-    const val TOAST_SELECTION_CANCELLED = "Selección cancelada"
 }

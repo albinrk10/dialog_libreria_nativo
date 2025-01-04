@@ -20,20 +20,20 @@ class DialogDriver(private val context: Context) {
 
     private var description: String? = null
     private var positiveButtonText: String? = null
-    private var negativeButtonText: String? = null
     private var positiveButtonClickListener: (() -> Unit)? = null
-    private var negativeButtonClickListener: (() -> Unit)? = null
     private var listItems: List<String>? = null
     private var dialog: AlertDialog? = null
 
     private var backgroundColor: Int? = null
     private var backgroundBorderColor: Int? = null
     private var backgroundBorderWidth: Int? = null
+    private var cancelableOnTouchOutside: Boolean = true // Valor por defecto
+    private var positiveButtonColor: Int? = null  // Nueva variable para el color del botón
 
-    // Setters para estilo del título
-    fun setTitle(title: String, size: Float = DESCRIPTION_SIZE) = apply {
-        this.title = title
-        this.titleSize = size
+
+    // Setter para cambiar el color de fondo del diálogo
+    fun setDialogBackgroundColor(color: String) = apply {
+        this.backgroundColor = Color.parseColor(color)
     }
 
     // Setters para descripción
@@ -47,29 +47,22 @@ class DialogDriver(private val context: Context) {
         this.positiveButtonClickListener = listener
     }
 
-    // Setters para el botón negativo
-    fun setNegativeButton(text: String, listener: () -> Unit) = apply {
-        this.negativeButtonText = text
-        this.negativeButtonClickListener = listener
-    }
+
 
     // Setters para lista de ítems
     fun setListItems(items: List<String>) = apply {
         this.listItems = items
     }
 
-    // Setters para color de fondo y borde
-    fun setBackgroundColor(colorBackground: String? = null, colorBorder: String? = null, borderWidth: Int? = null) = apply {
-        if (colorBackground != null) {
-            this.backgroundColor = Color.parseColor(colorBackground)
-        }
-        if (colorBorder != null) {
-            this.backgroundBorderColor = Color.parseColor(colorBorder)
-        }
-        if (borderWidth != null) {
-            this.backgroundBorderWidth = borderWidth
-        }
+
+    fun setCancelableOnTouchOutside(cancelable: Boolean) = apply {
+        this.cancelableOnTouchOutside = cancelable
     }
+
+    fun setPositiveButtonColor(color: String) = apply {
+        this.positiveButtonColor = Color.parseColor(color)
+    }
+
 
     // Construcción del diálogo dependiendo de los parámetros
     fun build() {
@@ -105,28 +98,32 @@ class DialogDriver(private val context: Context) {
         binding.dialogDescription.text = description ?: "Default description"
         binding.dialogTitle.textSize = titleSize
         binding.dialogButton.text = positiveButtonText ?: "Aceptar"
-
+        // Aplicar color al fondo del diálogo desde el código Kotlin
+        backgroundColor?.let {
+            binding.dialogRoot.setBackgroundColor(it)
+        }
+        positiveButtonColor?.let {
+            binding.dialogButton.setTextColor(it)
+        }
         setDialogBackground(binding.root)
-
+        // Cambiar el color del botón "X" a rojo
+        binding.dialogCloseButton.setColorFilter(Color.RED)
         dialog = AlertDialog.Builder(context)
             .setView(binding.root)
             .create()
+
 
         binding.dialogButton.setOnClickListener {
             positiveButtonClickListener?.invoke()
             dismissDialog()
         }
 
-        negativeButtonText?.let {
-            binding.dialogButtonNo.text = it
-            binding.dialogButtonNo.setOnClickListener {
-                negativeButtonClickListener?.invoke()
-                dismissDialog()
-            }
-            binding.dialogButtonNo.visibility = View.VISIBLE
+        // Configurar el botón "X"
+        binding.dialogCloseButton.setOnClickListener {
+            dismissDialog()
         }
 
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCanceledOnTouchOutside(cancelableOnTouchOutside)
         dialog?.show()
     }
 
@@ -135,7 +132,15 @@ class DialogDriver(private val context: Context) {
         val binding = CustomListDialogBinding.inflate(LayoutInflater.from(context))
         binding.dialogTitle.text = title ?: "Default Title"
         binding.dialogDescription.text = description ?: "Default description"
+        // Aplicar el color de fondo al contenedor raíz
+        backgroundColor?.let {
+            binding.root.setBackgroundColor(it)  // Establecer el fondo del contenedor raíz
+        }
+
         setDialogBackground(binding.root)
+        // Cambiar el color del botón "X" a rojo
+        binding.dialogCloseButton.setColorFilter(Color.RED)
+        // Aplicar color al fondo del diálogo desde el código Kotlin
 
         listItems?.let {
             val adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, it)
@@ -157,16 +162,12 @@ class DialogDriver(private val context: Context) {
             dismissDialog()
         }
 
-        if (negativeButtonText != null) {
-            binding.dialogButtonNo.text = negativeButtonText
-            binding.dialogButtonNo.setOnClickListener {
-                negativeButtonClickListener?.invoke()
-                dismissDialog()
-            }
-            binding.dialogButtonNo.visibility = View.VISIBLE
+        // Configurar el botón "X"
+        binding.dialogCloseButton.setOnClickListener {
+            dismissDialog()
         }
 
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCanceledOnTouchOutside(cancelableOnTouchOutside)
         dialog?.show()
     }
 

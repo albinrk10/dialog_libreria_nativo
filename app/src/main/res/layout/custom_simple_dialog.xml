@@ -1,21 +1,39 @@
-<!-- custom_simple_dialog.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/dialogRoot">
 
-    <!-- Título -->
-    <TextView
-        android:id="@+id/dialogTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dialog Title"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"
-        android:paddingBottom="8dp"/>
+    <!-- Contenedor para el título y el botón "X" -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dialog Title"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="8dp" />
+
+        <!-- Botón "X" -->
+        <ImageView
+            android:id="@+id/dialogCloseButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Close"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
 
     <!-- Descripción -->
     <TextView
@@ -45,17 +63,5 @@
             android:padding="10dp"
             android:textColor="@android:color/black"
             android:layout_gravity="center" />
-
-        <!-- Botón Cancelar (Invisible por defecto) -->
-        <Button
-            android:id="@+id/dialogButtonNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:visibility="gone"
-            android:background="?android:attr/selectableItemBackground"
-            android:textColor="@android:color/background_dark"
-            android:padding="10dp"
-            android:layout_gravity="center"/>
     </LinearLayout>
 </LinearLayout>
